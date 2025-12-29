@@ -23,6 +23,23 @@ const projects = {
         'DRAWING FINAL-15.png',
         'DRAWING FINAL-16.png',
         '5 (1).jpeg'
+    ],
+    'Re-Tidal': [
+        'Exterior_Cam 1.png',
+        'Exterior_Cam18 rida.png',
+        'Interior_cam5.png',
+        'Interior_cam6.png',
+        'Exploded Iso Final White background-01.png',
+        'Site Plan Final.png',
+        'Final Plan Drawings-paths-01.png',
+        'Inflatables and patterning FINALv2.png',
+        'Inflatable Clustering Diagram FINAL.png',
+        'Rockpool Colors and Texture fixed.png',
+        'Solo render1.png',
+        'Arduino hookup.png',
+        'DSC02159.png',
+        'DSC02163.png',
+        'DSC02170.png'
     ]
 };
 
@@ -34,6 +51,7 @@ const projectTitle = projectPage.querySelector('.project-title');
 const projectNavTitle = projectPage.querySelector('.project-nav-title');
 const projectGallery = projectPage.querySelector('.project-gallery');
 const backBtn = projectPage.querySelector('.back-btn');
+const mainHeader = document.querySelector('.main-header');
 
 // Initialize projects list
 function initProjects() {
@@ -92,9 +110,10 @@ function openProject(projectName) {
         projectGallery.appendChild(img);
     });
 
-    // Show project page
+    // Show project page and hide main sidebar
     projectPage.classList.add('active');
     document.body.style.overflow = 'hidden';
+    if (mainHeader) mainHeader.style.display = 'none';
 
     // Scroll to top of project page
     projectPage.scrollTop = 0;
@@ -107,6 +126,7 @@ function openProject(projectName) {
 function closeProject() {
     projectPage.classList.remove('active');
     document.body.style.overflow = '';
+    if (mainHeader) mainHeader.style.display = '';
     history.pushState({}, '', window.location.pathname);
 }
 
@@ -126,6 +146,7 @@ window.addEventListener('popstate', (e) => {
     } else {
         projectPage.classList.remove('active');
         document.body.style.overflow = '';
+        if (mainHeader) mainHeader.style.display = '';
     }
 });
 

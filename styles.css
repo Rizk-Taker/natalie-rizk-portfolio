@@ -33,26 +33,25 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* ===== Navigation ===== */
-header {
+/* ===== Navigation - Vertical Left Sidebar ===== */
+.main-header {
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
+    bottom: 0;
+    width: 200px;
     z-index: 100;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: var(--color-bg);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
 }
 
 nav {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0 var(--spacing-md);
-    height: var(--nav-height);
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 100%;
 }
 
 .logo {
@@ -61,11 +60,13 @@ nav {
     text-decoration: none;
     color: var(--color-text);
     letter-spacing: -0.01em;
+    margin-bottom: 2rem;
 }
 
 .nav-links {
     display: flex;
-    gap: var(--spacing-md);
+    flex-direction: column;
+    gap: 0.75rem;
 }
 
 .nav-links a {
@@ -82,7 +83,8 @@ nav {
 
 /* ===== Main Content ===== */
 main {
-    padding-top: var(--nav-height);
+    margin-left: 200px;
+    padding-top: 0;
 }
 
 /* ===== Projects Grid - Field Architecture Style ===== */
@@ -283,6 +285,7 @@ footer p {
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.4s ease, visibility 0.4s ease;
+    margin-left: 0; /* Override sidebar margin */
 }
 
 .project-page.active {
@@ -304,6 +307,7 @@ footer p {
 .project-header nav {
     height: var(--nav-height);
     display: flex;
+    flex-direction: row;
     align-items: center;
     padding: 0 var(--spacing-md);
     max-width: var(--max-width);
@@ -334,9 +338,10 @@ footer p {
 
 .project-hero {
     width: 100%;
-    height: 70vh;
+    height: 100vh;
     min-height: 400px;
     max-height: 700px;
+    margin: 0 auto;
     padding: var(--nav-height) var(--spacing-md) 0;
 }
 
@@ -363,19 +368,14 @@ footer p {
 
 .project-gallery {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--spacing-sm);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
 }
 
 .project-gallery img {
     width: 100%;
     height: auto;
     display: block;
-}
-
-/* Two-column layout for certain images */
-.project-gallery.two-col {
-    grid-template-columns: repeat(2, 1fr);
 }
 
 /* ===== Responsive ===== */
@@ -423,8 +423,40 @@ footer p {
         --nav-height: 60px;
     }
 
+    .main-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: auto;
+        width: 100%;
+        height: auto;
+        padding: 1rem;
+        flex-direction: row;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+
     nav {
-        padding: 0 var(--spacing-sm);
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .logo {
+        margin-bottom: 0;
+    }
+
+    .nav-links {
+        flex-direction: row;
+        gap: 1.5rem;
+    }
+
+    main {
+        margin-left: 0;
+        padding-top: var(--nav-height);
     }
 
     .work-section {
@@ -470,6 +502,10 @@ footer p {
     .project-title {
         font-size: 1.75rem;
         margin-bottom: var(--spacing-lg);
+    }
+
+    .project-gallery {
+        grid-template-columns: 1fr;
     }
 
     .project-gallery.two-col {
