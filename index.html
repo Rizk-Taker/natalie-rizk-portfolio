@@ -4,66 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Natalie Rizk</title>
-    <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #fff;
+            color: #111;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            padding: 2rem;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem 2rem 3rem;
+        }
+        main img {
+            max-width: 600px;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
+    </style>
 </head>
 <body>
-    <header class="main-header">
-        <nav>
-            <a href="/" class="logo">Natalie Rizk</a>
-            <div class="nav-links">
-                <a href="#work">Work</a>
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
-            </div>
-        </nav>
+    <header>
+        <h1>Natalie Rizk</h1>
     </header>
-
     <main>
-        <section id="work" class="work-section">
-            <div class="projects-list" id="projects-list">
-                <!-- Projects will be loaded here -->
-            </div>
-        </section>
-
-        <section id="about" class="about-section">
-            <div class="about-content">
-                <h2>About</h2>
-                <p>Natalie Rizk is a designer creating thoughtful, purposeful work with an emphasis on spatial design and visual storytelling.</p>
-            </div>
-        </section>
-
-        <section id="contact" class="contact-section">
-            <div class="contact-content">
-                <h2>Contact</h2>
-                <p><a href="mailto:hello@natalierizk.com">hello@natalierizk.com</a></p>
-            </div>
-        </section>
+        <img src="ai-corgi.jpg" alt="Under Construction">
     </main>
-
-    <footer>
-        <p>&copy; 2025 Natalie Rizk</p>
-    </footer>
-
-    <!-- Project Page -->
-    <div id="project-page" class="project-page">
-        <header class="project-header">
-            <nav>
-                <button class="back-btn" aria-label="Back to work">&larr; Back</button>
-                <span class="project-nav-title"></span>
-            </nav>
-        </header>
-        <div class="project-hero">
-            <img class="hero-image" src="" alt="">
-        </div>
-        <div class="project-content">
-            <h1 class="project-title"></h1>
-            <div class="project-gallery"></div>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
 </body>
 </html>
